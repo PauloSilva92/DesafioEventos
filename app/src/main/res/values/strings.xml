@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DesafioAndroidEventos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ver_mais">VER MAIS</string>
+    <string name="checkin">Check-in</string>
+</resources>
