@@ -12,7 +12,6 @@ import androidx.navigation.fragment.navArgs
 import com.example.desafioandroideventos.data.models.Checkin
 import com.example.desafioandroideventos.data.network.Status
 import com.example.desafioandroideventos.databinding.FragmentCheckinBinding
-import com.example.desafioandroideventos.ui.details.EventDetailsFragmentArgs
 import com.example.desafioandroideventos.ui.events.EventsViewModel
 
 class CheckinFragment : Fragment() {
