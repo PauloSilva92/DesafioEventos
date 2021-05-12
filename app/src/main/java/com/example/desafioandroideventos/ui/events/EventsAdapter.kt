@@ -42,12 +42,6 @@ class EventsAdapter(val events: List<Event>, val context: Context, val eventSele
                 eventSelectedListener.onEventSelectedListener(event, eventImage)
             }
         }
-
-
-    }
-
-    interface EventSelectedListener {
-        fun onEventSelectedListener(event: Event, eventImage: ImageView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventsViewHolder {

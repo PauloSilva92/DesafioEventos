@@ -2,6 +2,7 @@ package com.example.desafioandroideventos.data.network.events
 
 import com.example.desafioandroideventos.data.models.Event
 import com.example.desafioandroideventos.data.network.EventsAPI
+import com.example.desafioandroideventos.data.network.Status
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockResponse
@@ -63,7 +64,7 @@ class EventsFetcherTest {
     fun fetchEvents_success_successReturned() {
         success()
         val result = eventsFetcher.fetchEvents()
-        assertThat(result.status, `is`(EventsFetcher.Status.SUCCESS))
+        assertThat(result.status, `is`(Status.SUCCESS))
     }
 
     // if fetch events succeeds - events returned
@@ -79,7 +80,7 @@ class EventsFetcherTest {
     fun fetchEvents_failure_failReturned() {
         failure()
         val result = eventsFetcher.fetchEvents()
-        assertThat(result.status, `is`(EventsFetcher.Status.FAILURE))
+        assertThat(result.status, `is`(Status.FAILURE))
     }
 
     // if fetch events fails - no event returned
@@ -95,7 +96,7 @@ class EventsFetcherTest {
     fun fetchEvents_networkError_networkErrorReturned() {
         networkError()
         val result = eventsFetcher.fetchEvents()
-        assertThat(result.status, `is`(EventsFetcher.Status.NETWORK_ERROR))
+        assertThat(result.status, `is`(Status.NETWORK_ERROR))
     }
 
     // if no network available - no event returned
@@ -111,7 +112,7 @@ class EventsFetcherTest {
     fun fetchEventById_success_sucessReturned() {
         successById()
         val result = eventsFetcher.fetchEventById(eventId)
-        assertThat(result.status, `is`(EventsFetcher.Status.SUCCESS))
+        assertThat(result.status, `is`(Status.SUCCESS))
     }
 
     // if fetch event by id succeeds - event returned
@@ -127,7 +128,7 @@ class EventsFetcherTest {
     fun fetchEventById_failure_failureReturned() {
         failure()
         val result = eventsFetcher.fetchEventById(eventId)
-        assertThat(result.status, `is`(EventsFetcher.Status.FAILURE))
+        assertThat(result.status, `is`(Status.FAILURE))
     }
 
     // if fetch event fails - no event returned
@@ -143,7 +144,7 @@ class EventsFetcherTest {
     fun fetchEventById_networkError_networkErrorReturned() {
         networkError()
         val result = eventsFetcher.fetchEventById(eventId)
-        assertThat(result.status, `is`(EventsFetcher.Status.NETWORK_ERROR))
+        assertThat(result.status, `is`(Status.NETWORK_ERROR))
     }
 
     // if no network available - no event returned

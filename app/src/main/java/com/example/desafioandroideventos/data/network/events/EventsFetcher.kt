@@ -1,16 +1,11 @@
 package com.example.desafioandroideventos.data.network.events
 
 import com.example.desafioandroideventos.data.network.EventsAPI
+import com.example.desafioandroideventos.data.network.Status
 import java.io.IOException
 import java.lang.Exception
 
-class EventsFetcher (val eventsAPI: EventsAPI){
-    enum class Status {
-        SUCCESS,
-        FAILURE,
-        NETWORK_ERROR
-
-    }
+class EventsFetcher (val eventsAPI: EventsAPI) {
 
     fun fetchEvents(): EventsFetcherResult {
         try {

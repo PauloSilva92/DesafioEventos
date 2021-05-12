@@ -28,5 +28,21 @@
         <argument
             android:name="event_id"
             app:argType="long" />
+        <action
+            android:id="@+id/action_eventDetailsFragment_to_checkinFragment"
+            app:destination="@id/checkinFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkinFragment"
+        android:name="com.example.desafioandroideventos.CheckinFragment"
+        android:label="fragment_checkin"
+        tools:layout="@layout/fragment_checkin" >
+        <argument
+            android:name="event_id"
+            app:argType="long" />
     </fragment>
 </navigation>

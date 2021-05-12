@@ -8,11 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
 import com.bumptech.glide.Glide
+import com.example.desafioandroideventos.CheckinFragment
 import com.example.desafioandroideventos.R
+import com.example.desafioandroideventos.data.models.Checkin
+import com.example.desafioandroideventos.data.network.Status
 import com.example.desafioandroideventos.databinding.FragmentEventDetailsBinding
 import com.example.desafioandroideventos.ui.events.EventsViewModel
 
@@ -66,6 +71,10 @@ class EventDetailsFragment : Fragment() {
             binding.eventTitle.text = event.title
             binding.eventDescription.text = event.description
             binding.checkinButton.show()
+            binding.checkinButton.setOnClickListener {
+                val action = EventDetailsFragmentDirections.actionEventDetailsFragmentToCheckinFragment(eventId = eventId)
+                findNavController().navigate(action)
+            }
         }
 
     }

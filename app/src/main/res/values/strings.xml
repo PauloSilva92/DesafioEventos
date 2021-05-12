@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ver_mais">VER MAIS</string>
     <string name="checkin">Check-in</string>
+    <string name="informe">Informe seus dados</string>
+    <string name="name">Nome</string>
+    <string name="email">Email</string>
 </resources>
