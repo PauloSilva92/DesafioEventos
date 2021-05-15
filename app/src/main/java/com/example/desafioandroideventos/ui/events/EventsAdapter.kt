@@ -13,10 +13,10 @@ import com.bumptech.glide.Glide
 import com.example.desafioandroideventos.R
 import com.example.desafioandroideventos.data.models.Event
 
-class EventsAdapter(val events: List<Event>, val context: Context, val eventSelectedListener: EventSelectedListener):
+class EventsAdapter(val events: List<Event>, private val onItemSelected: (event: Event, imageView: ImageView) -> Unit):
     RecyclerView.Adapter<EventsAdapter.EventsViewHolder>() {
 
-    class EventsViewHolder(itemView: View, context: Context, private val eventSelectedListener: EventSelectedListener): RecyclerView.ViewHolder(itemView) {
+    class EventsViewHolder(itemView: View, val onItemSelected: (event: Event, imageView: ImageView) -> Unit): RecyclerView.ViewHolder(itemView) {
         private val eventTitle: TextView = itemView.findViewById(R.id.event_title)
         private val eventDate: TextView = itemView.findViewById(R.id.event_date)
         private val eventDescription: TextView = itemView.findViewById(R.id.event_description)
@@ -39,14 +39,15 @@ class EventsAdapter(val events: List<Event>, val context: Context, val eventSele
             }
 
             eventDetailsButton.setOnClickListener {
-                eventSelectedListener.onEventSelectedListener(event, eventImage)
+                onItemSelected(event, eventImage)
+//                eventSelectedListener.onEventSelectedListener(event, eventImage)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.event_item, parent, false)
-        return EventsViewHolder(view, context, eventSelectedListener)
+        return EventsViewHolder(view, onItemSelected)
     }
 
     override fun onBindViewHolder(holder: EventsViewHolder, position: Int) {

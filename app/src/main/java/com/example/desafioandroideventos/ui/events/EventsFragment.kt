@@ -28,13 +28,11 @@ class EventsFragment : Fragment() {
     }
 
     private val eventsAdapter: EventsAdapter by lazy {
-        EventsAdapter(events, requireContext(), object : EventSelectedListener {
-            override fun onEventSelectedListener(event: Event, eventImage: ImageView) {
-                val fragmentNavigatorExtras = FragmentNavigatorExtras(eventImage to event.image)
-                val action = EventsFragmentDirections.actionMainFragmentToEventDetailsFragment(uri = event.image, eventId = event.id)
-                findNavController().navigate(action, fragmentNavigatorExtras)
-            }
-        })
+        EventsAdapter(events) { event, eventImage ->
+            val fragmentNavigatorExtras = FragmentNavigatorExtras(eventImage to event.image)
+            val action = EventsFragmentDirections.actionMainFragmentToEventDetailsFragment(uri = event.image, eventId = event.id)
+            findNavController().navigate(action, fragmentNavigatorExtras)
+        }
     }
 
     private lateinit var recyclerViewEvents: RecyclerView
