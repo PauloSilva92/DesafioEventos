@@ -12,7 +12,7 @@ android:
     - 'android-sdk-license-.+'
 
 before_install:
-  - yes | sudo sdkmanager --licenses
+  - yes | sdkmanager --licenses
   - chmod +x gradlew
 
 script: ./gradlew clean test build
