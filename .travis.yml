@@ -8,6 +8,9 @@ android:
     - build-tools-30.0.3
     - android-30
 
+  licenses:
+    - 'android-sdk-license-.+'
+
 before_install:
   - chmod +x gradlew
 
