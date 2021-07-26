@@ -1,6 +1,5 @@
 language: android
 jdk: oraclejdk8
-sudo: false
 
 android:
   components:
@@ -8,5 +7,8 @@ android:
     - tools
     - build-tools-30.0.3
     - android-30
+
+before_install:
+  - chmod +x gradlew
 
 script: ./gradlew connectedAndroidTest
