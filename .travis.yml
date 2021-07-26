@@ -6,13 +6,12 @@ android:
     - platform-tools
     - tools
     - build-tools-30.0.3
-    - android-30
 
   licenses:
     - 'android-sdk-license-.+'
 
 before_install:
-  - echo yes | sdkmanager --licenses
+  - yes | sdkmanager "platforms;android-30"
   - chmod +x gradlew
 
 script: ./gradlew clean test build
